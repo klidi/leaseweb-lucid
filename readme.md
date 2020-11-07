@@ -22,7 +22,7 @@ app :
 ## Application workflow
 
 Workflow its very simple, controller always interacts with a feature, features eather runs an operation or multiple, which are a job wrappers, or runs jobs.
-Jobs dont run other jobs.
+Jobs don't run other jobs.
 
 I have implemented a very basic oauth2 with laravel passport enabling user registration and authentication
 
@@ -34,8 +34,16 @@ Normally you would ask why RamModule is modeled as a value object . Given the bu
 to me that RamModule has an identity. To me its an not a mutable object just like a ram module in real life. U can not change
 its size or type.  Even in a business case where we would have an inventory of ram modules i still would not consider it as something with an identity.
 
+Price and RamModules are persisted as json in the db , and they are casted back and for ValueObject or collection to json and the other
+way around with a Casting class, find them inside app/Foundation/Casts
+
 Apart from this i have tried to encapsulate all invariants inside the appropriate object leaving almost nothing in the hands of the application layer.
 I am a big fan of behavioral, unbreakable and very granular(in relation to invariants) models instead of anemic models that have only getters and setters
+
+## Testing
+
+Testing follows the same structure as the app, I have added some unit tests for various jobs , but no feature tests. In total there is like 45 tests.
+It takes an awful amount of time to add tests coverage to 100% and it did not make sense to me to keep doing that.
 
 ## How to run
 
@@ -47,3 +55,5 @@ Project runs on php 7.4 (sorry :P )
 - php artisan serve to run the internal php web server
 
 I hope i did not forget something.
+
+
