@@ -12,20 +12,16 @@ class MakeServerFromInputOperation extends Operation
 {
     public function handle(Request $request) : Server
     {
-        $price  = $this->run(MakePriceFromInputJob::class, [
-            'price' => $request->input('price'),
-        ]);
-
-        $ramModules = $this->run(MakeRamModulesFromInputJob::class, [
-            'ramModules' => $request->input('ram_modules'),
-        ]);
-
         return $this->run(MakeServerFromInputJob::class, [
             'assetId' => $request->input('asset_id'),
             'name' => $request->input('name'),
             'brandId' => $request->input('brand_id'),
-            'price' => $price,
-            'ramModules' => $ramModules,
+            'price' => $this->run(MakePriceFromInputJob::class, [
+                'price' => $request->input('price')
+            ]),
+            'ramModules' => $this->run(MakeRamModulesFromInputJob::class, [
+                'ramModules' => $request->input('ram_modules'),
+            ]),
         ]);
     }
 }
