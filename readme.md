@@ -21,8 +21,8 @@ app :
 
 ## Application workflow
 
-Workflow its very simple, controller always interacts with a feature, features eather runs an operation or multiple, which are a job wrappers, or runs jobs.
-Jobs don't run other jobs.
+Workflow its very simple, controller always interacts with a feature, feature eather runs an operation or multiple, which are job wrappers, or runs jobs.
+Jobs don't run other jobs. 
 
 I have implemented a very basic oauth2 with laravel passport enabling user registration and authentication
 
@@ -34,6 +34,9 @@ Normally you would ask why RamModule is modeled as a value object . Given the bu
 to me that RamModule has an identity. To me its an not a mutable object just like a ram module in real life. U can not change
 its size or type.  Even in a business case where we would have an inventory of ram modules i still would not consider it as something with an identity.
 
+Consider the Server the agregate root , and this agregate is composed by a model/Entity and many Value Objects
+Brand is not part of the Server agregate as it has its own lifecycle
+
 Price and RamModules are persisted as json in the db , and they are casted back and for ValueObject or collection to json and the other
 way around with a Casting class, find them inside app/Foundation/Casts
 
@@ -43,7 +46,7 @@ I am a big fan of behavioral, unbreakable and very granular(in relation to invar
 ## Testing
 
 Testing follows the same structure as the app, I have added some unit tests for various jobs , but no feature tests. In total there is like 45 tests.
-It takes an awful amount of time to add tests coverage to 100% and it did not make sense to me to keep doing that.
+It takes an awful amount of time to add tests coverage to 100% and it did not make sense to me to keep doing that due to not having a a lot of free time lately.
 
 ## How to run
 
@@ -54,6 +57,6 @@ Project runs on php 7.4 (sorry :P )
 - artisan seed (some basic data to populate db)
 - php artisan serve to run the internal php web server
 
-I hope i did not forget something.
+I hope i did not forget something. If u have any trouble to setup let me know and I will try to host it with heroku.
 
 
