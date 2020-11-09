@@ -46,7 +46,7 @@ I am a big fan of behavioral, unbreakable and very granular(in relation to invar
 ## Testing
 
 Testing follows the same structure as the app, I have added some unit tests for various jobs , but no feature tests. In total there is like 45 tests.
-It takes an awful amount of time to add tests coverage to 100% and it did not make sense to me to keep doing that.
+It takes an awful amount of time to add tests coverage to 100% and it did not make sense to me to keep doing that due to not having a a lot of free time lately.
 
 ## How to run
 
@@ -57,6 +57,6 @@ Project runs on php 7.4 (sorry :P )
 - artisan seed (some basic data to populate db)
 - php artisan serve to run the internal php web server
 
-I hope i did not forget something.
+I hope i did not forget something. If u have any trouble to setup let me know and I will try to host it with heroku.
 
 
