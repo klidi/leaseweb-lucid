@@ -37,7 +37,7 @@ its size or type.  Even in a business case where we would have an inventory of r
 Consider the Server the agregate root , and this agregate is composed by a model/Entity and many Value Objects
 Brand is not part of the Server agregate as it has its own lifecycle
 
-Price and RamModules are persisted as json in the db , and they are casted back and for ValueObject or collection to json and the other
+Price and RamModules are persisted as json in the db , and they are casted to ValueObjects or collection and the other
 way around with a Casting class, find them inside app/Foundation/Casts
 
 Apart from this i have tried to encapsulate all invariants inside the appropriate object leaving almost nothing in the hands of the application layer.
