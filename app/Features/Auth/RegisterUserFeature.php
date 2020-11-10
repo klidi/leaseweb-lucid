@@ -5,12 +5,13 @@ namespace Framework\Features\Auth;
 use Framework\Domains\Auth\Jobs\ValidateRegistrationInputJob;
 use Framework\Operations\Auth\RegisterUserOperation;
 use Framework\Http\Jobs\RespondWithJsonJob;
+use Illuminate\Http\JsonResponse;
 use Lucid\Foundation\Feature;
 use Illuminate\Http\Request;
 
 class RegisterUserFeature extends Feature
 {
-    public function handle(Request $request) : string
+    public function handle(Request $request) : JsonResponse
     {
         $this->run(ValidateRegistrationInputJob::class, [
             'input' => $request->input(),

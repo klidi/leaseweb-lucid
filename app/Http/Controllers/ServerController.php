@@ -12,6 +12,7 @@ use Framework\Features\Server\DeleteServerFeature;
 use Framework\Features\Server\CreateServerFeature;
 use Framework\Features\Server\GetServersFeature;
 use Framework\Features\Server\ShowServerFeature;
+use Illuminate\Http\JsonResponse;
 use Lucid\Foundation\Http\Controller;
 use Illuminate\Http\Request;
 use Framework\Data\Server;
@@ -20,7 +21,7 @@ use Framework\Data\User;
 class ServerController extends Controller
 {
 
-    public function index(User $user) : string
+    public function index(User $user) : JsonResponse
     {
         return $this->serve(GetServersFeature::class, [
             'user' => $user
@@ -31,7 +32,7 @@ class ServerController extends Controller
      * @param Request $request
      * @return Server
      */
-    public function store(Request $request) : string
+    public function store(Request $request) : JsonResponse
     {
         return $this->serve(CreateServerFeature::class, [
             'request' => $request,
@@ -43,14 +44,14 @@ class ServerController extends Controller
      * @param Server $server
      * @return Server
      */
-    public function show(User $user, Server $server) : string
+    public function show(User $user, Server $server) : JsonResponse
     {
         return $this->serve(ShowServerFeature::class, [
             'server' => $server,
         ]);
     }
 
-    public function delete(User $user, Server $server) : string
+    public function delete(User $user, Server $server) : JsonResponse
     {
         return $this->serve(DeleteServerFeature::class, [
             'server' => $server,

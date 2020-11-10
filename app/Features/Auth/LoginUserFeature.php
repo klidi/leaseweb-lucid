@@ -9,13 +9,14 @@ use Framework\Domains\Auth\Jobs\AuthenticateUserJob;
 use Framework\Domains\Auth\Jobs\CreateUserTokenJob;
 use Framework\Http\Jobs\RespondWithJsonErrorJob;
 use Framework\Http\Jobs\RespondWithJsonJob;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Lucid\Foundation\Feature;
 use Illuminate\Http\Request;
 
 class LoginUserFeature extends Feature
 {
-    public function handle(Request $request)
+    public function handle(Request $request) :JsonResponse
     {
         $this->run(ValidateLoginInputJob::class, [
             'input' => $request->input(),

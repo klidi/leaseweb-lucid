@@ -7,12 +7,13 @@ use Framework\Operations\Server\MakeServerFromInputOperation;
 use Framework\Http\Jobs\RespondWithJsonErrorJob;
 use Framework\Http\Jobs\RespondWithJsonJob;
 use Framework\Http\Resources\Server;
+use Illuminate\Http\JsonResponse;
 use Lucid\Foundation\Feature;
 use Illuminate\Http\Request;
 
 class CreateServerFeature extends Feature
 {
-    public function handle(Request $request)
+    public function handle(Request $request) :JsonResponse
     {
         $this->run(ValidateCreateServerInputOperation::class, [
             'request' => $request

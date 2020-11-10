@@ -5,6 +5,7 @@ namespace Framework\Features\Server;
 use Framework\Data\User;
 use Framework\Http\Jobs\RespondWithJsonJob;
 use Framework\Http\Resources\ServerCollection;
+use Illuminate\Http\JsonResponse;
 use Lucid\Foundation\Feature;
 
 class GetServersFeature extends Feature
@@ -15,7 +16,7 @@ class GetServersFeature extends Feature
         $this->user = $user;
     }
 
-    public function handle() : string
+    public function handle() : JsonResponse
     {
         return $this->run( new RespondWithJsonJob(new ServerCollection($this->user->servers()->paginate(10))));
     }

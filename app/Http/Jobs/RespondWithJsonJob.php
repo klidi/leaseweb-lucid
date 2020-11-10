@@ -8,7 +8,6 @@
 
 namespace Framework\Http\Jobs;
 
-
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\ResponseFactory;
 
@@ -22,7 +21,7 @@ class RespondWithJsonJob
         $this->options = $options;
     }
 
-    public function handle(ResponseFactory $factory) : string
+    public function handle(ResponseFactory $factory)
     {
         $response = [
             'data' => $this->content,

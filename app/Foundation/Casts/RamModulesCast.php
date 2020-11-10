@@ -9,6 +9,7 @@
 namespace Framework\Foundation\Casts;
 
 use Framework\Data\Collections\RamModules;
+use Framework\Data\ValueObjects\RamModule;
 use Framework\Data\ValueObjects\RamModuleType;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use InvalidArgumentException;

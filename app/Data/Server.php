@@ -10,9 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Server extends Model implements HasValidationRules
 {
-
-
-
     protected $fillable = [
         'asset_id', 'user_id', 'name', 'brand_id'
     ];
@@ -43,5 +40,10 @@ class Server extends Model implements HasValidationRules
     public function brand() : BelongsTo
     {
         return $this->belongsTo('Framework\Data\Brand');
+    }
+
+    public static function createPriceInstance()
+    {
+
     }
 }

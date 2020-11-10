@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function servers() : HasMany
     {
-        return $this->hasMany('Framework\Data\Server');
+        return $this->hasMany(Server::class);
     }
 
     /**
