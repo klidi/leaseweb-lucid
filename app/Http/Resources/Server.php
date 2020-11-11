@@ -16,6 +16,7 @@ class Server extends JsonResource
     {
         return [
             'id' => $this->id,
+            'asset_id' => $this->asset_id,
             'user_id' => $this->user_id,
             'name'  => $this->name,
             'brand' => $this->brand,

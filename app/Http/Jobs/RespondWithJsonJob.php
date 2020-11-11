@@ -23,11 +23,6 @@ class RespondWithJsonJob
 
     public function handle(ResponseFactory $factory)
     {
-        $response = [
-            'data' => $this->content,
-            'status' => $this->status,
-        ];
-
-        return $factory->json($response, $this->status, $this->headers, $this->options);
+        return $factory->json($this->content, $this->status, $this->headers, $this->options);
     }
 }
