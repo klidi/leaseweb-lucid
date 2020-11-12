@@ -59,4 +59,52 @@ Project runs on php 7.4 (sorry :P )
 
 I hope i did not forget something. If u have any trouble to setup let me know and I will try to host it with heroku.
 
+# Routes
 
+
+http://18.185.94.188/api/register | POST
+```
+{
+    "name": "user1",
+    "email": "user1@gmail.com",
+    "password": "secret123",
+    "password_confirmation": "secret123"
+ }
+ ```
+ 
+ http://18.185.94.188/api/login | POST
+ ```
+ {
+     "email": "user1@gmail.com",
+     "password": "secret123",
+  }
+  ```
+  http://18.185.94.188/api/users/{userId}/servers | GET
+  
+  http://18.185.94.188/api/users/{userId}/servers | POST
+  
+  ```
+  {
+      "asset_id": 2347478975,
+      "name": "ass",
+      "brand_id": 2,
+      "price": {
+          "amount": 122,
+          "currency": "USD"
+      },
+      "ram_modules": [
+          {
+              "type": "DDR4",
+              "size": "1024"
+          }
+      ]
+  }
+  ```
+  http://18.185.94.188/api/users/{userId}/servers/{serverId} | GET
+  
+  http://18.185.94.188/api/users/{userId}/servers/{serverId} | DELETE
+  
+ 
+ 
+ 
+ 
