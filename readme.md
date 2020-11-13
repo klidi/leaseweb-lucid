@@ -86,7 +86,7 @@ http://18.185.94.188/api/register | POST
   ```
   {
       "asset_id": 2347478975,
-      "name": "ass",
+      "name": "Server test 1",
       "brand_id": 2,
       "price": {
           "amount": 122,
